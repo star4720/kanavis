@@ -1,197 +1,485 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BRACKETS 으로 시작하기</title>
+        <meta name="description" content="Brackets에 대한 대화식 시작 안내서입니다.">
+        <link rel="stylesheet" href="main.css">
+    
+    
+        <meta name="description" content="Page Loading Effects: Modern ways of revealing new content" />
+		<meta name="keywords" content="page loading, svg animation, loading effect, fullscreen svg" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/snap.svg-min.js"></script>
+		<!--[if IE]>
+  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7243260-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+        
+        <script type="text/javascript" src="http://code.createjs.com/easeljs-0.6.0.min.js"></script>
+        
+    
+        
+        
+    </head>
+    <body>
+        
+        <canvas id='canvas1' width="1000" height="465"></canvas>
+        
+        
+ 
+        <div class="sk-circle">
+  <div class="sk-circle1 sk-child"></div>
+  <div class="sk-circle2 sk-child"></div>
+  <div class="sk-circle3 sk-child"></div>
+  <div class="sk-circle4 sk-child"></div>
+  <div class="sk-circle5 sk-child"></div>
+  <div class="sk-circle6 sk-child"></div>
+  <div class="sk-circle7 sk-child"></div>
+  <div class="sk-circle8 sk-child"></div>
+  <div class="sk-circle9 sk-child"></div>
+  <div class="sk-circle10 sk-child"></div>
+  <div class="sk-circle11 sk-child"></div>
+  <div class="sk-circle12 sk-child"></div>
+</div>
+        
+        <center> <canvas id="canvas" width="300" height="300"></canvas></center>
+        <script type="importmap">
+        
+          {
+           "imports": {
+           "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
+            "GLTFLoader":
+           "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
+           }
+           }
+        
+        
+  
+        
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
-<title>KANAVIS</title>
-	<link href="https://fonts.googleapis.com/css?family=Coiny"rel="stylesheet"
-		  type="text/css"/>
-	
+        
+        <h1 class="ml1">
+  <span class="text-wrapper">
+    <span class="line line1"></span>
+    <span class="letters">THURSDAY</span>
+    <span class="line line2"></span>
+  </span>
+</h1>
+        
+        
+         <script type="module">
+    import{GLTFLoader} from 'GLTFLoader';
+    import * as THREE from'three';
+    
+    let scene = new THREE.Scene();
+    let renderer = new THREE.WebGLRenderer({
+        canvas : document.querySelector('#canvas'),
+        antialias : true
+        
+    });
+        
+             renderer.outputEncoding = THREE.sRGBEncoding;
+             
+        let camera = new THREE.PerspectiveCamera(30,1);
+             camera.position.set(0,0,5
+                                );
+        scene.background = new THREE.Color('white');
+             let light = new THREE.DirectionalLight(0xffff00,10);
+             scene.add(light);
+             
+             
+        let loader = new GLTFLoader();
+             loader.load('shiba/scene.gltf', function(gltf){
+                 scene.add(gltf.scene);
+                 
+                  
+                 function animate(){
+                 requestAnimationFrame(animate)
+                 gltf.scene.rotation.y += 0.1;
+                 renderer.render(scene, camera);
+             }
+                  animate()    
+             });
+    
+    
+            
+        
+        </script>
+        
+        
+        <h1>BRACKETS 으로 시작하기</h1>
+        <h2>이것은 당신의 가이드입니다.</h2>
+        
+        <!--
+            <3 및 JAVASCRIPT로 작성되었습니다.
+        -->
+        
+        <p>
+            
+            웹 디자인을 이해하는 현대적인 오픈 소스 코드 편집기 인 Brackets에 오신 것을 환영합니다. 가볍고 강력한 코드 편집기로 시각 도구를 편집기에 통합하여 원할 때 도움을받을 수 있습니다.
+        </p>
+        
+      
+        <!---<a href="screenshots/quick-edit.png">
+            <img alt="CSS 빠른 편집을 보여주는 스크린 샷" src="screenshots/quick-edit.png" />
+        </a>
+        
+        --->
+        
+        	<div id="pagewrap" class="pagewrap">
+			<div class="container show" id="page-1">
+				<!-- Top Navigation -->
+				<div class="codrops-top clearfix">
+					<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Tutorials/CircularProgressButton/"><span>Previous Demo</span></a>
+					<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=18880"><span>Back to the Codrops Article</span></a></span>
+				</div>
+				<header class="codrops-header">
+					<h1>Page Loading Effects <span>Modern ways of revealing new content</span></h1>
+				</header>
+				<section class="columns clearfix">
+					<div class="column">
+						<nav class="codrops-demos">
+							<a href="index.html">Lazy Stretch</a>
+							<a href="index2.html">Circle</a>
+							<a href="index3.html">Spill</a>
+							<a href="index4.html">Frame it</a>
+							<a href="index5.html">Tunnel vision</a>
+							<a href="index6.html">Windscreen wiper</a>
+							<a href="index7.html">Jammed blind</a>
+							<a href="index8.html">Parallelogram</a>
+							<a href="index9.html">Tilted</a>
+							<a href="index10.html">Lateral Swipe</a>
+							<a class="current-demo" href="index11.html">Wave</a>
+							<a href="index12.html">Origami</a>
+							<a href="index13.html">Curtain</a>
+						</nav>
+					</div>
+					<div class="column">
+						<p>To start the page loading animation, click the following link:</p>
+						<p><a class="pageload-link" href="#page-2">Show Page Loader</a></p>
+					</div>
+				</section>
+				<section class="related">
+					<p>If you enjoyed this demo you might also like:</p>
+					<a href="http://tympanus.net/Development/FullscreenOverlayStyles/">
+						<img src="https://tympanus.net/codrops/wp-content/uploads/2014/02/FullscreenOverlayStyles-300x162.jpg" />
+						<h3>Fullscreen Overlay Effects</h3>
+					</a>
+					<a href="http://tympanus.net/Tutorials/ShapeHoverEffectSVG/">
+						<img src="https://tympanus.net/codrops/wp-content/uploads/2014/01/ShapeHoverEffect-300x162.png" />
+						<h3>Shape Hover Effect</h3>
+					</a>
+				</section>
+			</div><!-- /container -->
 
-	
-	<!--부트스트랩-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	
-	<!--헤더-->
-	<style>#main_header{width:960px; margin: 0 auto;
-	height:160px;
-	position: relative;
-		}
-		#main_header>#title{position absolute;
-		left:20px; top:30;}
-		#main_header>#title{position: absolute left:20px; top:30px;}
-		#main_header>#main_gnb{position:absolute; right:0; top:0;}
-		#main_geader>#main_lnb{position: 
-		absolute;
-		right:0; bottom:10px;}
-	
-	</style>
-	<!--타이틀-->
-<style>
-			#title{font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', 'serif'}
-	</style>
-	<!--초기화-->
-	<style>*{margin:0; padding:0;}
- body{font-falmily: sans-serif}
-	li{list-style:none}
-	a{text-decoration: none;
-		img{border:0;}</style>
-	
-	
-	<!--메뉴1-->
-	<style>
-		#main_gnb>ul{overflow:hidden;}
-		#main_gnb>ul>li{float:left;}
-		#main_gnb>ul>li>a{display:block;
-		padding:2px 10px;
-		border: 1px solid black;}
-		#main_gnb>ul>li>a:hover{background:black;
-		color:white;}
-		#main_gnb>ul>li:first-child>a{border-radius:10px 0 0 10px;}
-		#main_gnb>ul>li:last-child>a {border-radius:0 10px 10px 0;}
-		
-	
-	</style>
-	<!--메뉴2-->
-	<style>
-	    #main_lab>ul{overflow:hidden;}
-		#main_lab>ul>li{float:left;}
-		#main_lab>ul>li>a{
-		display:block;
-		padding:10px 20px;
-		border:1px solid black;}
-		#main_lab>ul>li>a:hover{background:black;
-		color:white;}
-		#main_lab>ul>li:first-child>a{border-radius:10px 0 0 10px;}
-		#main_lab>ul>li:last-child>a{border-radius:0 10px 10px 0;}
-		</style>
-	<!--콘텐츠-->
-	<style></style>
-	<!--본문-->
-	<style>body {padding: 70px; paddin-top: 80px;}</style>
-	<!--사이드-->
-	<style></style>
-	<!--목록-->
-	<style></style>
-	<!--푸터-->
-    <style>		
-footer{width:1000px; height: 100px; background-color:lightgrey;}
-    </style>
-	
-	
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-</head>
+			<!-- The new page dummy; this would be dynamically loaded content -->
+			<div class="container" id="page-2">
+				<!-- Top Navigation -->
+				<div class="codrops-top clearfix">
+					<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Tutorials/CircularProgressButton/"><span>Previous Demo</span></a>
+					<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=18880"><span>Back to the Codrops Article</span></a></span>
+				</div>
+				<section>
+					<h2>This is an example for a new page.</h2>
+					<p><a class="pageload-link" href="#page-1">Go back</a></p>
+				</section>
+			</div><!-- /container -->
 
-<body>
-	
-		
-<div id="title" class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg">
-	    <div class="container">
-		<a class="navbar-brand" href="#"><strong>KANAVIS&nbsp;</strong></a>
-			<button class="navbar-toggler" type="button"
-					data-toggle="collapse" data-target="#navbar-content">
-			<span class="navbar-toggler-icon"></span></button>
-			
-		<div class="collaps navbar-collapse" id="navbar-content">
-			<ul class="navbar-nav mr-auto">
-			<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">메뉴</a></li></ul>
-			<div class="dropdown-menu">
-			<a class="dropdown-item" href="#">geolocation</a>
-			<a class="dropdown-item" href="#">drag and drop</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">motion</a>
-		  </div>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="#">&nbsp;Company InFo</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Personal info&nbsp;</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Continous&nbsp;</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Contact&nbsp;</a></li>
-			</ul>
-			</div>
-		<form class="form-inline">
-		<input type="text" class="form-control" placeholder="search"/></form>
-		<ul class="navbar-nav">
-		<li class="nav-item"><a class="nav-link" href="#">1&nbsp;</a></li>
-		<li class="nav-item"><a class="nav-link" href="#">2&nbsp;</a></li></ul>
-		</div>
-	</div>
-	</div>
-	
-<div class="container">
-	<div class="row">
-	<div class="col-md-3">
-		<h2>&nbsp;메뉴</h2>
-		<br>
-     <ul class"list-group">
-		 <h4>
-		 <li class="list-group-item"><a href="https://star4720.github.io/kanavis/main_portfolio.html">메인 포트폴리오&nbsp;</a></li>
-	     <li class="list-group-item"><a href="#">Pucture&nbsp;</a></li>
-			 <li class="list-group-item"><a href="#">3D works&nbsp;</a></li>
-			 </ul>
-		 <br />
-	<ul class"list-group">
-		<li class="list-group-item"><a href="#">전기 시퀀스&nbsp;</a></li>
-		 <li class="list-group-item"><a href="#">쇼핑몰 제작건&nbsp;</a></li>
-		<li class="list-group-item"><a href="#">동영상 촬영, 편집건&nbsp;</a></li>
-         <li class="list-group-item"><a href="#">유튜브 제작건&nbsp;</a></li>
-		<li class="list-group-item"><a href="#">이니시스 계약건&nbsp;</a></li>
-        <li class="list-group-item"><a href="#">건강 기능식품 심의 완료건&nbsp;</a></li>
-		</uL>
-		 </h4>
+			<div id="loader" class="pageload-overlay" data-opening="m -5,-5 0,70 90,0 0,-70 z m 5,35 c 0,0 15,20 40,0 25,-20 40,0 40,0 l 0,0 C 80,30 65,10 40,30 15,50 0,30 0,30 z">
+				<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 80 60" preserveAspectRatio="none" >
+					<path d="m -5,-5 0,70 90,0 0,-70 z m 5,5 c 0,0 7.9843788,0 40,0 35,0 40,0 40,0 l 0,60 c 0,0 -3.944487,0 -40,0 -30,0 -40,0 -40,0 z"/>
+				</svg>
+			</div><!-- /pageload-overlay -->
+        
+                
+                
+                
+                
+        <script>      
+        // Wrap every letter in a span
+var textWrapper = document.querySelector('.ml1 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
-		</ul>
-	</div>
-		<div class="col-md-9">
-		<img src="the kanavis.jpg" width="700" align="center"/>
-		<p> 안녕하세요. 칸나비스 프론트메이커 이재윤이라고 합니다.</p>
-		<p> 현재는 프론트엔드 페이지를 작성하고 있으며, 백엔드및 호스팅은 쇼핑몰벤더를 통해 홈페이지를 만들고 있습니다. 
-		  쇼핑몰의 주요상품은 실물잡화로 마스크, 마스크팩, 건강기능식품, 오일상품으로, 컨텐츠 제작을 통해 궁극적으로 
-		  라이프스타일의 개선을 위한 웹 어플리케이션 연동으로 실제적인 개선을 보이는 시스템을 제작하는 것입니다.
-		  
-		  가지고 있는 시스템으로는 전기보일러 설계,시퀀스 인포가 있습니다.
-		  포토샵,일러스트레이션, html 마스터 및 낮은 수준의 자바스크립트, 파이널컷(영상편집), 모션5(프레임워크), procreate
-		  도메인은 cannabinoid.kr pills.kr pilling.co.kr cannabinoid.shop
-		  니콘 800d를 이용한 촬영 
-		  텔레마케팅 자격증, 엑셀자격증, 기계설계자격증, 있습니다.</p>
-        </div>
-	
-	</div>
-		
-		
-		
-		
-	
-  <div2>
-	<h1>LoremIpsum</h1>
-		<br>
-    <img src="표현.png" width="900" align="center"/>
-	<p>칸나비노이드는 여러분의 시작을 바꿀것 입니다.</p>
-		<p>칸나비노이드는 여러분의 시작을 바꿀것 입니다.
-		칸나비노이드는 여러분의 시작을 바꿀것 입니다.
-		칸나비노이드는 여러분의 시작을 바꿀것 입니다.
-		칸나비노이드는 여러분의 시작을 바꿀것 입니다.
-		칸나비노이드는 여러분의 시작을 바꿀것 입니다.
-		칸나비노이드는 여러분의 시작을 바꿀것 입니다.
-		칸나비노이드는 여러분의 시작을 바꿀것 입니다.
-		칸나비노이드는 여러분의 시작을 바꿀것 입니다.
-		칸나비노이드는 여러분의 시작을 바꿀것 입니다.
-		칸나비노이드는 여러분의 시작을 바꿀것 입니다.
-		칸나비노이드는 여러분의 시작을 바꿀것 입니다.
-		칸나비노이드는 여러분의 시작을 바꿀것 입니다.
-		칸나비노이드는 여러분의 시작을 바꿀것 입니다.
-		칸나비노이드는 여러분의 시작을 바꿀것 입니다.</p>
-	
-	</div2>
-<div3>
-	<img src="아임웹필스티셔츠.jpg" width="940"/></div>
-	
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml1 .letter',
+    scale: [0.3,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 600,
+    delay: (el, i) => 70 * (i+1)
+  }).add({
+    targets: '.ml1 .line',
+    scaleX: [0,1],
+    opacity: [0.5,1],
+    easing: "easeOutExpo",
+    duration: 700,
+    offset: '-=875',
+    delay: (el, i, l) => 80 * (l - i)
+  }).add({
+    targets: '.ml1',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+            
+            
+            var stage;
 
-	<footer>
-		<p>CEO: 이재윤ㅣ Business License: 000-00-00000 ㅣ Communication Sales Business Report: 0000-Seoul-0000
-Address: Seoul, Korea CS: +82 (0)0-000-0000(AM10 - PM5, Lunch PM1 - PM2, Weekend and Holiday Off) 
-			Terms of use  ㅣ Privacy Policy</p>
-	</footer></body>
-		</html>
+function init() {   
+  var canvas = document.getElementById("canvas1");
+    if (!canvas || !canvas.getContext) return;
+    
+  stage = new createjs.Stage(canvas);  
+    stage.enableMouseOver(true);
+    stage.mouseMoveOutside = true; 
+    createjs.Touch.enable(stage);
+    
+    var imgList = [
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/1.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/2.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/3.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/4.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/5.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/6.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/7.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/8.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/10.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/11.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/12.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/13.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/14.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/15.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/16.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/17.png", 
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/18.png", 
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/19.png", 
+               "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/20.png", 
+               "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/21.png",
+               "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/22.png",
+               "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/23.png",
+               "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/24.png",
+               "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/25.png",
+               "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/26.png", 
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/27.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/28.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/29.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/30.png",
+             "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/31.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/32.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/33.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/34.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/35.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/36.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/37.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/38.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/39.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/40.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/41.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/42.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/43.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/44.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/45.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/46.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/47.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/48.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/49.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/50.png",
+              "https://res.cloudinary.com/dewn0wy2s/image/upload/v1592668487/360/51.png"];  
+    var images = [], loaded = 0, currentFrame = 0, totalFrames = imgList.length; 
+    var rotate360Interval, start_x;
+    
+    var bg = new createjs.Shape();
+    stage.addChild(bg);  
+    
+    var bmp = new createjs.Bitmap();    
+    stage.addChild(bmp);
+    
+    var myTxt = new createjs.Text("360 Car", '24px Ubuntu', "#ffffff");
+    myTxt.x = myTxt.y =20;
+    myTxt.alpha = 0.08;
+    stage.addChild(myTxt);   
+    
+    
+    function load360Image() {
+        var img = new Image();
+        img.src = imgList[loaded];
+        img.onload = img360Loaded;
+        images[loaded] = img;   
+    }
+    
+    function img360Loaded(event) {
+        loaded++;        
+        bg.graphics.clear()
+        bg.graphics.beginFill("#222").drawRect(0,0,stage.canvas.width * loaded/totalFrames, stage.canvas.height);
+        bg.graphics.endFill();
+        
+        if(loaded==totalFrames) start360();
+        else load360Image();
+    }
 
+    
+    function start360() {
+        document.body.style.cursor='none';
+        
+        // 360 icon
+        var iconImage = new Image();
+        iconImage.src = "";
+        iconImage.onload = iconLoaded;        
+       
+        // update-draw
+        update360(0);
+        
+        // first rotation
+        rotate360Interval = setInterval(function(){ if(currentFrame===totalFrames-1) { clearInterval(rotate360Interval); addNavigation(); } update360(1); }, 25);
+    }
+    
+    function iconLoaded(event) {
+        var iconBmp = new createjs.Bitmap();
+        iconBmp.image = event.target;
+        iconBmp.x = 20;
+        iconBmp.y = canvas.height - iconBmp.image.height - 20;
+        stage.addChild(iconBmp);
+    }
+    
+    function update360(dir) {
+        currentFrame+=dir;
+        if(currentFrame<0) currentFrame = totalFrames-1;
+        else if(currentFrame>totalFrames-1) currentFrame = 0;
+        bmp.image = images[currentFrame];
+    }
+
+
+    //------------------------------- 
+     function addNavigation() { 
+        stage.onMouseOver = mouseOver;
+        stage.onMouseDown = mousePressed;        
+        document.body.style.cursor='auto';
+    }
+    
+    function mouseOver(event) {
+        document.body.style.cursor='pointer';
+    }
+    
+    function mousePressed(event) {
+        start_x = event.rawX;
+        stage.onMouseMove = mouseMoved;
+        stage.onMouseUp = mouseUp;
+        
+        document.body.style.cursor='w-resize';        
+    }
+    
+  function mouseMoved(event) {
+        var dx = event.rawX - start_x;
+        var abs_dx = Math.abs(dx);
+        
+        if(abs_dx>5) {
+            update360(dx/abs_dx);
+            start_x = event.rawX;
+        }
+  }
+    
+    function mouseUp(event) {
+        stage.onMouseMove = null;
+        stage.onMouseUp = null;         
+        document.body.style.cursor='pointer';
+  }    
+    
+    function handleTick() { 
+         stage.update();
+    }    
+    
+    document.body.style.cursor='progress';
+    load360Image();
+    
+    
+     // TICKER
+    createjs.Ticker.addEventListener("tick", handleTick);
+    createjs.Ticker.setFPS(60);
+    createjs.Ticker.useRAF = true;
+}
+
+
+
+
+// Init
+window.addEventListener('load', init, false);
+        
+</script>
+        <script src="js/classie.js"></script>
+		<script src="js/svgLoader.js"></script>
+		<script>
+			(function() {
+				var pageWrap = document.getElementById( 'pagewrap' ),
+					pages = [].slice.call( pageWrap.querySelectorAll( 'div.container' ) ),
+					currentPage = 0,
+					triggerLoading = [].slice.call( pageWrap.querySelectorAll( 'a.pageload-link' ) ),
+					loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 400, easingIn : mina.easeinout } );
+
+				function init() {
+					triggerLoading.forEach( function( trigger ) {
+						trigger.addEventListener( 'click', function( ev ) {
+							ev.preventDefault();
+							loader.show();
+							// after some time hide loader
+							setTimeout( function() {
+								loader.hide();
+
+								classie.removeClass( pages[ currentPage ], 'show' );
+								// update..
+								currentPage = currentPage ? 0 : 1;
+								classie.addClass( pages[ currentPage ], 'show' );
+
+							}, 2000 );
+						} );
+					} );	
+				}
+
+				init();
+			})();
+		</script>
+		
+    </body>
+</html>
+<!--
+
+    [[[[[[[[[[[[[[[      ]]]]]]]]]]]]]]]
+    [::::::::::::::      ::::::::::::::]
+    [::::::::::::::      ::::::::::::::]
+    [::::::[[[[[[[:      :]]]]]]]::::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[     CODE THE WEB     ]:::::]
+    [:::::[  http://brackets.io  ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [::::::[[[[[[[:      :]]]]]]]::::::]
+    [::::::::::::::      ::::::::::::::]
+    [::::::::::::::      ::::::::::::::]
+    [[[[[[[[[[[[[[[      ]]]]]]]]]]]]]]]
+
+-->
